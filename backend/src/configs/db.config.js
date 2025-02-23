@@ -1,6 +1,6 @@
 import pg from 'pg';
 
-const { Pool, Client } = pg;
+const { Pool } = pg;
 
 const databaseConfig = {
 	user: process.env.DB_USER,
@@ -11,8 +11,6 @@ const databaseConfig = {
 };
 
 export const pool = new Pool(databaseConfig);
-
-export const client = new Client(databaseConfig);
 
 // Test and establish the database connection
 export async function establishDbConnection() {
@@ -25,5 +23,4 @@ export async function establishDbConnection() {
 		console.error("Error connecting to the database:", err);
 		process.exit(1);
 	}
-}
-
+};
