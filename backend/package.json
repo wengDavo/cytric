@@ -6,6 +6,7 @@
   "scripts": {
     "start": "nodemon src/index.js",
     "test": "mocha test/unit",
+	"build": "npm install && npm run migrate",
     "migrate": "node src/configs/migrations.config.js",
     "migrate:rollback": "node src/configs/migrations.config.js --rollback"
   },
