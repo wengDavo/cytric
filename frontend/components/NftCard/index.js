@@ -2,14 +2,14 @@ import Image from "next/image";
 
 function NftCard({ nft_image_url, nft_name, nft_description }) {
 	return (
-		<figure className="border border-[#1F2937] bg-[#11182780] rounded-xl flex-shrink-0 w-96">
+		<figure className="border border-[#1F2937] bg-[#11182780] rounded-xl flex-shrink-0 md:w-96">
 			<div>
 				<Image
 					src={nft_image_url}
 					layout="responsive"
 					alt="NFT image"
-					width={16}
-					height={16}
+					width={80}
+					height={80}
 					className="rounded-t-xl object-cover"
 				/>
 			</div>
