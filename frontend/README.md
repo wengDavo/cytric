@@ -1,17 +1,17 @@
 # Cytric NFT Minting Project  
 
-## 🎨 NFT Endpoints  
-### Store NFT  (Query by NFT information)  
-POST https://cytric-t79d.onrender.com/api/v1/nfts
+## 🎨 API routes  
+### Store NFT  (Query by NFT information)
+https://cytric-t79d.onrender.com/api/v1/nfts
 
-### Get NFT  (Param by Id)  
-GET https://cytric-t79d.onrender.com/api/v1/nfts/:nft_id
+### Get NFT  (Param by Id)
+https://cytric-t79d.onrender.com/api/v1/nfts/:nft_id
 
 ### Get NFT Gallery (Query by User Wallet Address)  
-GET https://cytric-t79d.onrender.com/api/v1/nfts?user_wallet_address=<wallet_address>
+https://cytric-t79d.onrender.com/api/v1/nfts?user_wallet_address=<wallet_address>
 
 ### Docs
-GET https://cytric-t79d.onrender.com/docs/
+https://cytric-t79d.onrender.com/docs/
 
 
 ## Deployed API Link
