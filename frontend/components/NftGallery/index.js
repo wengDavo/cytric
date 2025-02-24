@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useAccount } from "wagmi";
 import NftCard from "../NftCard";
 
-const API_BASE_URL = "http://localhost:8080/api/v1/nfts";
+const API_BASE_URL = `https://cytric-t79d.onrender.com/api/v1/nfts`;
 
 function NftGallery() {
 	const { address: walletAddress, isConnected } = useAccount();

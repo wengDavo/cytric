@@ -7,7 +7,7 @@ import cube from "@/public/images/cube.svg";
 import contractABI from "@/utils/abiFile.json";
 
 const CONTRACT_ADDRESS = "0x743f49311a82fe72eb474c44e78da2a6e0ae951c";
-const API_BASE_URL = "http://localhost:8080/api/v1/nfts";
+const API_BASE_URL = `https://cytric-t79d.onrender.com/api/v1/nfts`;
 const DEFAULT_IMAGE_URL = "/images/bored.jpg";
 
 function MintForm() {

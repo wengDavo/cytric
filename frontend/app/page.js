@@ -12,7 +12,7 @@ export default function Home() {
 			<article className="grid gap-6 mx-6 md:mt-24 md:gap-y-28">
 				<Hero />
 				<MintForm />
-				<MintSuccessful />
+				{/* <MintSuccessful /> */}
 			</article>
 			<NftGallery />
 		</section>
