@@ -1,26 +1,26 @@
 # Cytric NFT Minting Project  
 
-## 🎨 NFT Endpoints  
-### Store NFT  (Query by NFT information)  
-POST https://cytric-t79d.onrender.com/api/v1/nfts
+## (A) API routes  
+### Store NFT  (Query by NFT information)
+https://cytric-t79d.onrender.com/api/v1/nfts
 
-### Get NFT  (Param by Id)  
-GET https://cytric-t79d.onrender.com/api/v1/nfts/:nft_id
+### Get NFT  (Param by Id)
+https://cytric-t79d.onrender.com/api/v1/nfts/:nft_id
 
 ### Get NFT Gallery (Query by User Wallet Address)  
-GET https://cytric-t79d.onrender.com/api/v1/nfts?user_wallet_address=<wallet_address>
+https://cytric-t79d.onrender.com/api/v1/nfts?user_wallet_address=<wallet_address>
 
 ### Docs
-GET https://cytric-t79d.onrender.com/docs/
+https://cytric-t79d.onrender.com/docs/
 
 
-## Deployed API Link
+## (B) Deployed API Link
 - **Deployed API:** https://cytric-t79d.onrender.com/api/v1
 
-## Deployed Frontend Link
+## (C) Deployed Frontend Link
 - **Frontend:** https://cytric-zeta.vercel.app/
 
-## Loom
+## (D) Loom
 - Demo of the application you built
 https://www.loom.com/share/9f304384248248c8962c571a975ff2aa?sid=8b6d4f63-be2f-42d3-bd45-7c088b53dff6
 
@@ -30,5 +30,5 @@ https://www.loom.com/share/8b5d17ad392d456d99ec8181c923af4b?sid=0c5bd6ff-7878-45
 - Walkthrough of the frontend code
 https://www.loom.com/share/76147300221349828512d7215f643f2d?sid=83b6c3e1-c8a4-47b4-8909-6edb23a743fc
 
-## Link To Backedn repo
-- **Backend Repository:** https://github.com/wengDavo/cytric
+## (E) Link To Backedn repo
+- **Backend Repository:** https://github.com/wengDavo/cytric/tree/main/backend

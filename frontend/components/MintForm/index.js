@@ -20,10 +20,32 @@ function MintForm() {
 	const [isMinted, setIsMinted] = useState(false);
 	const [mintedNft, setMintedNft] = useState(null);
 
+	// Read contract to check if an ID exists
+	const { refetch } = useReadContract({
+		address: CONTRACT_ADDRESS,
+		abi: contractABI,
+		functionName: "checkId",
+		args: [BigInt(0)],
+		query: { enabled: false },
+	});
+
 	const { writeContract } = useWriteContract();
 
-	const generateRandomId = () => Math.floor(Math.random() * 1000000);
+	const generateUniqueId = async () => {
+		let id;
+		let exists = true;
 
+		while (exists) {
+			id = Math.floor(Math.random() * 1000000);
+			const result = await refetch({ args: [BigInt(id)] });
+			console.log("result", result)
+			exists = !result?.data;
+		}
+
+		return id;
+	};
+
+	// Store NFT metadata in the API
 	const storeNftMetadata = async (id) => {
 		if (!walletAddress) return null;
 
@@ -43,7 +65,10 @@ function MintForm() {
 			});
 
 			const data = await response.json();
-			if (!response.ok) throw new Error(data.message || "Failed to store NFT metadata");
+			if (!response.ok) {
+				alert(data.message || "Failed to store NFT metadata")
+				return
+			}
 
 			return data;
 		} catch (error) {
@@ -52,6 +77,7 @@ function MintForm() {
 		}
 	};
 
+	// Mint NFT function
 	const handleMint = async (e) => {
 		e.preventDefault();
 		setIsMinting(true);
@@ -62,8 +88,9 @@ function MintForm() {
 			return;
 		}
 
-		const id = generateRandomId();
+		const id = await generateUniqueId();
 		const storedNft = await storeNftMetadata(id);
+
 		if (!storedNft) {
 			alert("Failed to store NFT metadata.");
 			setIsMinting(false);
@@ -71,10 +98,8 @@ function MintForm() {
 		}
 
 		const metadataUrl = `${API_BASE_URL}/${id}`;
-		try {
-			const response = await fetch(metadataUrl);
-			if (!response.ok) throw new Error("Failed to fetch metadata URL");
 
+		try {
 			writeContract({
 				address: CONTRACT_ADDRESS,
 				abi: contractABI,
@@ -90,9 +115,9 @@ function MintForm() {
 				id,
 				image: imageURL || DEFAULT_IMAGE_URL,
 			});
-			setIsMinted(true); // Switch to success screen
+			setIsMinted(true);
 
-			// Clear form fields
+			// Reset form fields
 			setNftName("");
 			setDescription("");
 			setImageURL("");
@@ -104,7 +129,7 @@ function MintForm() {
 		setIsMinting(false);
 	};
 
-	// Show success component if minted
+	// If minting was successful, show success screen
 	if (isMinted && mintedNft) {
 		return <MintSuccessful nft={mintedNft} onMintAnother={() => setIsMinted(false)} />;
 	}
@@ -124,10 +149,6 @@ function MintForm() {
 				<div className="grid gap-y-1">
 					<label className="p-[2px] text-[#9CA3AF] text-sm">Image URL</label>
 					<input type="text" className="border border-[#374151] outline-none bg-[#1F2937] p-2 rounded-[8px]" value={imageURL} onChange={(e) => setImageURL(e.target.value)} />
-				</div>
-				<div className="grid gap-y-1">
-					<label className="p-[2px] text-[#9CA3AF] text-sm">Wallet Address</label>
-					<input type="text" className="border border-[#374151] outline-none bg-[#1F2937] p-2 rounded-[8px]" value={walletAddress || "Connect wallet"} readOnly disabled />
 				</div>
 			</article>
 			<button type="submit" className="bg-gradient-to-r from-[#EC4899] to-[#8B5CF6] rounded-lg flex text-[#E5E7EB] p-3 items-center justify-center gap-x-2" disabled={isMinting}>
