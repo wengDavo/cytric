@@ -1,14 +1,14 @@
 import { storeNftService, getNftByIdService, getNftByWalletAddressService } from "../services/nfts.services.js";
 
 export async function storeNft(req, res) {
-	const { nft_name, nft_description, nft_logo_url, user_wallet_address } = req.body;
+	const { nft_id, nft_name, nft_description, nft_logo_url, user_wallet_address } = req.body;
 
-	if (!nft_name || !nft_description || !nft_logo_url || !user_wallet_address) {
+	if (!nft_id || !nft_name || !nft_description || !nft_logo_url || !user_wallet_address) {
 		return res.status(400).json({ message: "All fields are required" });
 	}
 
 	try {
-		const nft = await storeNftService({ nft_name, nft_description, nft_logo_url, user_wallet_address });
+		const nft = await storeNftService({ nft_id, nft_name, nft_description, nft_logo_url, user_wallet_address });
 		return res.status(201).json({ message: "NFT created successfully", nft: nft });
 
 	} catch (error) {

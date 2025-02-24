@@ -1,11 +1,12 @@
 import { pool } from "../configs/db.config.js";
 
-export async function storeNftModel({ nft_name, nft_description, nft_logo_url, user_wallet_address }) {
+export async function storeNftModel({ nft_id, nft_name, nft_description, nft_logo_url, user_wallet_address }) {
 	const query = `
-			INSERT INTO nft (nft_name, nft_description, nft_logo_url, user_wallet_address) 
-			VALUES ($1, $2, $3, $4) RETURNING *
+			INSERT INTO nft (nft_id, nft_name, nft_description, nft_logo_url, user_wallet_address) 
+			VALUES ($1, $2, $3, $4, $5) RETURNING *
 	`;
 	const { rows: newNft } = await pool.query(query, [
+		nft_id,
 		nft_name,
 		nft_description,
 		nft_logo_url,

@@ -1,19 +1,14 @@
 import { getNftByNameModel, storeNftModel, getNftByIdModel, getNftByWalletAddressModel } from "../models/nfts.models.js";
 
 export async function storeNftService(nftData) {
-	try {
-		const existingNft = await getNftByNameModel(nftData.nft_name);
+	const existingNft = await getNftByNameModel(nftData.nft_name);
 
-		if (existingNft) {
-			throw new Error("NFT EXISTS");
-		}
-
-		const newNft = await storeNftModel(nftData);
-		return newNft;
-	} catch (error) {
-		console.error("Database Error:", error);
-		throw new Error("DATABASE_ERROR");
+	if (existingNft) {
+		throw new Error("NFT EXISTS");
 	}
+
+	const newNft = await storeNftModel(nftData);
+	return newNft;
 }
 
 export async function getNftByIdService(nft_id) {

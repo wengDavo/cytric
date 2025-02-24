@@ -1,8 +1,9 @@
+"use client";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import MintForm from "@/components/MintForm";
 import NftGallery from "@/components/NftGallery";
-import MinfSuccessful from "@/components/MintSuccessful";
+import MintSuccessful from "@/components/MintSuccessful";
 
 export default function Home() {
 	return (
@@ -11,7 +12,7 @@ export default function Home() {
 			<article className="grid gap-6 mx-6 md:mt-24 md:gap-y-28">
 				<Hero />
 				<MintForm />
-				<MinfSuccessful />
+				<MintSuccessful />
 			</article>
 			<NftGallery />
 		</section>

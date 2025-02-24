@@ -1,6 +1,6 @@
 import Image from "next/image";
 import cube from "@/public/images/cube.png";
-import wallet from "@/public/images/wallet.png";
+import CustomRainbowButton from "../CustomRainbowButton";
 
 function Header() {
 	return (
@@ -14,15 +14,7 @@ function Header() {
 						height={23}
 					/>
 				</figure>
-				<button className="p-1 px-3 md:p-2 md:px-4 text-white flex gap-1 bg-gradient-to-r from-[#EC4899] to-[#8B5CF6] rounded-full transition transform active:scale-90">
-					<Image
-						src={wallet}
-						alt="wallet icon"
-						width={16}
-						height={16}
-					/>
-					<p>Connect Wallet</p>
-				</button>
+				<CustomRainbowButton />
 			</nav>
 		</header>
 	)
