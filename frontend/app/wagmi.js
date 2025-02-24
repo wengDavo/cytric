@@ -10,9 +10,9 @@ const queryClient = new QueryClient();
 
 const config = getDefaultConfig({
   appName: 'cytric',
-  projectId: process.env.NEXT_PUBLIC_PROJECT_ID, // Ensure this is defined in .env
+  projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
   chains: [sepolia],
-  ssr: false, // Ensure this is client-side only
+  ssr: false,
 });
 
 export default function Providers({ children }) {
