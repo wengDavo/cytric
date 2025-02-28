@@ -1,6 +1,6 @@
 # Cytric NFT Minting Project  
 
-## (A) API routes  
+## 🎨 API routes  
 ### Store NFT  (Query by NFT information)
 https://cytric-t79d.onrender.com/api/v1/nfts
 
@@ -30,5 +30,5 @@ https://www.loom.com/share/8b5d17ad392d456d99ec8181c923af4b?sid=0c5bd6ff-7878-45
 - Walkthrough of the frontend code
 https://www.loom.com/share/76147300221349828512d7215f643f2d?sid=83b6c3e1-c8a4-47b4-8909-6edb23a743fc
 
-## (E) Link To Backedn repo
+## (E) Link To Backend repo
 - **Backend Repository:** https://github.com/wengDavo/cytric/tree/main/backend
